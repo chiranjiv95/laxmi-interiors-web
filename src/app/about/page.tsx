@@ -7,7 +7,7 @@ const AboutPage = () => {
         <h1 className="text-3xl font-semibold mb-4">About Us</h1>
         <p className="text-gray-600">
           At <strong>Laxmi Modular Kitchen & Interior</strong>, we believe that
-          every home deserves a space that's functional, elegant, and uniquely
+          every home deserves a space that is functional, elegant, and uniquely
           yours.
         </p>
       </section>
@@ -33,8 +33,8 @@ const AboutPage = () => {
 
       <section className="text-center">
         <p className="mt-4 text-gray-600">
-          Whether you're renovating your kitchen or building your dream home,
-          we're here to bring your vision to life.{" "}
+          Whether you are renovating your kitchen or building your dream home,
+          we are here to bring your vision to life.{" "}
         </p>
       </section>
     </div>

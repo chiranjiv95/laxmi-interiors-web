@@ -7,8 +7,8 @@ const ContactPage = () => {
       <section className="text-center">
         <h1 className="text-3xl font-semibold mb-4">Contact Us</h1>
         <p className=" text-gray-600">
-          We'd love to hear from you! Visit our store or reach out via phone or
-          Whatsapp.
+          We would love to hear from you! Visit our store or reach out via phone
+          or Whatsapp.
         </p>
       </section>
       {/* Address + Whatspp */}
