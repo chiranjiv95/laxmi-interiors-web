@@ -12,7 +12,11 @@ type FormValues = {
 };
 
 const ContactForm = () => {
-  const { register, handleSubmit } = useForm<FormValues>();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormValues>();
 
   const onSubmit = (data: FormValues) => {
     console.log("Form Data:", data);
@@ -26,8 +30,11 @@ const ContactForm = () => {
           id="name"
           type="text"
           placeholder="Your Name"
-          {...register("name")}
+          {...register("name", { required: "Name is required" })}
         />
+        {errors.name && (
+          <p className="text-sm text-red-500 mt-1">{errors.name.message}</p>
+        )}
       </div>
 
       <div>
@@ -36,8 +43,17 @@ const ContactForm = () => {
           id="email"
           type="email"
           placeholder="you@example.com"
-          {...register("email")}
+          {...register("email", {
+            required: "Email is required",
+            pattern: {
+              value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+              message: "Invalid email address",
+            },
+          })}
         />
+        {errors.email && (
+          <p className="text-sm text-red-500 mt-1">{errors.email.message}</p>
+        )}
       </div>
 
       <div>
@@ -46,8 +62,16 @@ const ContactForm = () => {
           id="phone"
           type="tel"
           placeholder="9876543210"
-          {...register("phone")}
+          {...register("phone", {
+            pattern: {
+              value: /^[6-9]\d{9}$/,
+              message: "Enter a valid 10-digit Indian phone number",
+            },
+          })}
         />
+        {errors.phone && (
+          <p className="text-sm text-red-500 mt-1">{errors.phone.message}</p>
+        )}
       </div>
 
       <div>
@@ -56,8 +80,14 @@ const ContactForm = () => {
           id="message"
           placeholder="Type your message here..."
           rows={4}
-          {...register("message")}
+          {...register("message", {
+            required: "Message is required",
+          })}
         />
+
+        {errors.message && (
+          <p className="text-sm text-red-500 mt-1">{errors.message.message}</p>
+        )}
       </div>
 
       <button type="submit">Submit</button>
