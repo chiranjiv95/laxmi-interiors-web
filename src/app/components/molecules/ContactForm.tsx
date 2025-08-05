@@ -3,6 +3,7 @@
 import { useForm } from "react-hook-form";
 import Input from "../atoms/Input";
 import Textarea from "../atoms/Textarea";
+import axios from "axios";
 
 type FormValues = {
   name: string;
@@ -18,8 +19,15 @@ const ContactForm = () => {
     formState: { errors },
   } = useForm<FormValues>();
 
-  const onSubmit = (data: FormValues) => {
+  const onSubmit = async (data: FormValues) => {
     console.log("Form Data:", data);
+    try {
+      const response = await axios.post("/api/contact", data);
+      console.log("response", response);
+      return response.data;
+    } catch (error) {
+      throw new Error(error.response?.data?.message || "Something went wrong!");
+    }
   };
 
   return (
