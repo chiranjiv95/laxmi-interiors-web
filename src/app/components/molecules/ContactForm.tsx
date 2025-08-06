@@ -31,22 +31,36 @@ const ContactForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="space-y-5 bg-white p-6 shadow-md rounded-xl"
+    >
       <div>
-        <label htmlFor="name">Name</label>
+        <label
+          htmlFor="name"
+          className="block text-sm font-medium text-gray-700"
+        >
+          Name
+        </label>
         <Input
           id="name"
           type="text"
           placeholder="Your Name"
           {...register("name", { required: "Name is required" })}
         />
+
         {errors.name && (
           <p className="text-sm text-red-500 mt-1">{errors.name.message}</p>
         )}
       </div>
 
       <div>
-        <label htmlFor="email">Email</label>
+        <label
+          htmlFor="email"
+          className="block text-sm font-medium text-gray-700"
+        >
+          Email
+        </label>
         <Input
           id="email"
           type="email"
@@ -65,11 +79,16 @@ const ContactForm = () => {
       </div>
 
       <div>
-        <label htmlFor="phone">Phone</label>
+        <label
+          htmlFor="phone"
+          className="block text-sm font-medium text-gray-700"
+        >
+          Phone
+        </label>
         <Input
           id="phone"
           type="tel"
-          placeholder="9876543210"
+          placeholder="1234567890"
           {...register("phone", {
             pattern: {
               value: /^[6-9]\d{9}$/,
@@ -83,7 +102,12 @@ const ContactForm = () => {
       </div>
 
       <div>
-        <label htmlFor="message">Message</label>
+        <label
+          htmlFor="message"
+          className="block text-sm font-medium text-gray-700"
+        >
+          Message
+        </label>
         <Textarea
           id="message"
           placeholder="Type your message here..."
@@ -98,7 +122,12 @@ const ContactForm = () => {
         )}
       </div>
 
-      <button type="submit">Submit</button>
+      <button
+        type="submit"
+        className="w-full bg-black text-white py-2 px-4 rounded hover:bg-gray-800 transition cursor-pointer"
+      >
+        Submit
+      </button>
     </form>
   );
 };

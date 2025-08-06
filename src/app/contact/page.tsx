@@ -1,5 +1,5 @@
 import React from "react";
-import Link from "next/link";
+import ContactSection from "../components/organisms/ContactSection";
 
 const ContactPage = () => {
   return (
@@ -11,6 +11,10 @@ const ContactPage = () => {
           or Whatsapp.
         </p>
       </section>
+
+      {/* Form */}
+      <ContactSection />
+
       {/* Address + Whatspp */}
       <section className="bg-gray-50 p-6 rounded-xl shadow">
         <h2 className="text-xl font-medium mb-2">Store Address</h2>
