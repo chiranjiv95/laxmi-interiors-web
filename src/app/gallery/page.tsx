@@ -14,10 +14,13 @@ const images = [
 
 const GalleryPage = () => {
   return (
-    <div className="space-y-10">
-      <section className="text-center">
-        <h1 className="text-3xl font-semibold mb-4"> Our Work Gallery</h1>
-        <p className="text-gray-600">
+    <div className="max-w-7xl mx-auto px-4 py-12 space-y-12">
+      {/* Heading */}
+      <section className="text-center max-w-2xl mx-auto">
+        <h1 className="text-4xl font-bold mb-4 text-gray-800">
+          Our Work Gallery
+        </h1>
+        <p className="text-gray-600 text-lg">
           A glimpse into our modular kitchne and interior design projects. More
           coming soon!
         </p>
