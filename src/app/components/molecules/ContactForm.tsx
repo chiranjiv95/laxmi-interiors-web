@@ -26,7 +26,10 @@ const ContactForm = () => {
       console.log("response", response);
       return response.data;
     } catch (error) {
-      throw new Error(error.response?.data?.message || "Something went wrong!");
+      if (error instanceof Error) {
+        throw new Error(error.message || "Something went wrong!");
+      }
+      throw new Error("Something went wrong!");
     }
   };
 
