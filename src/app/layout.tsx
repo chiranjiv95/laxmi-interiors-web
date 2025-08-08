@@ -29,7 +29,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="min-h-screen flex flex-col bg-white text-gray-800">
         <Header />
-        <main className="flex-1 max-w-7xl mx-auto px-4 py-6 w-full">
+        <main className="flex-1 mx-auto w-full">
           {children}
           <WhatsappButton />
         </main>
