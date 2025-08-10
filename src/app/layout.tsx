@@ -4,6 +4,7 @@ import "./globals.css";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import { WhatsappButton } from "./components/WhatsappButton";
+import { Toaster } from "react-hot-toast";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,6 +35,8 @@ export default function RootLayout({
           <WhatsappButton />
         </main>
         <Footer />
+
+        <Toaster position="top-center" reverseOrder={false} />
       </body>
     </html>
   );

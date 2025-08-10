@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import Input from "../atoms/Input";
 import Textarea from "../atoms/Textarea";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 type FormValues = {
   name: string;
@@ -16,6 +17,7 @@ const ContactForm = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<FormValues>();
 
@@ -23,13 +25,17 @@ const ContactForm = () => {
     console.log("Form Data:", data);
     try {
       const response = await axios.post("/api/contact", data);
-      console.log("response", response);
+      toast.success("Message sent successfully!");
+      reset();
       return response.data;
     } catch (error) {
-      if (error instanceof Error) {
-        throw new Error(error.message || "Something went wrong!");
-      }
-      throw new Error("Something went wrong!");
+      // toast.error("Failed to send message. Please try again.");
+      // if (error instanceof Error) {
+      //   throw new Error(error.message || "Something went wrong!");
+      // }
+      // throw new Error("Something went wrong!");
+      console.error(error);
+      toast.error("Failed to send message. Please try again.");
     }
   };
 
